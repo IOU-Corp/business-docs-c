@@ -27,9 +27,6 @@
     .brand-icon { background: var(--accent); color: white; font-weight: 850; border-radius: 10px; width: 42px; height: 42px; display: grid; place-items: center; font-size: 14px; letter-spacing: -.025em; }
     .brand-name { display: block; font-weight: 800; letter-spacing: -.02em; font-size: 19px; line-height: 1.1; }
     .brand-subtitle { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; letter-spacing: .01em; }
-    .top-nav { display: flex; align-items: center; gap: 14px; font-size: 13px; }
-    .nav-current { background: #f1f4f8; color: #273950; border: 1px solid var(--line); padding: 9px 12px; border-radius: 8px; font-weight: 700; white-space: nowrap; }
-    .nav-future { color: var(--muted); white-space: nowrap; }
     .hero-wrap { background: linear-gradient(118deg, #17243a 0%, #22354c 72%, #36465a 100%); position: relative; overflow: hidden; }
     .hero-wrap::after { content: ""; position: absolute; right: -90px; top: -170px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(229,69,37,.19), transparent 67%); pointer-events: none; }
     .hero { width: min(1160px, calc(100% - 40px)); margin: auto; padding: 53px 0 56px; position: relative; z-index: 1; }
@@ -75,14 +72,12 @@
       .layout { grid-template-columns: 1fr; gap: 24px; margin-top: 25px; }
       aside { position: static; }
       .topbar-inner { min-height: 72px; }
-      .nav-future { display: none; }
       .hero { padding: 39px 0 43px; }
     }
     @media (max-width: 480px) {
       .topbar-inner,.hero,.layout { width: min(100% - 30px, 1160px); }
       .brand-icon { height: 38px; width: 38px; }
       .brand-name { font-size: 17px; }
-      .nav-current { font-size: 11px; padding: 8px; }
       .hero p { font-size: 14px; }
       .doc-card { padding: 22px 19px; }
       .doc-row { flex-direction: column-reverse; gap: 13px; }
@@ -117,10 +112,6 @@
         <span class="brand-icon" aria-hidden="true">IOU</span>
         <span><span class="brand-name">IOU Corp</span><span class="brand-subtitle">Legal &amp; Policy Center</span></span>
       </div>
-      <nav class="top-nav" aria-label="Document portals">
-        <a class="nav-future" href="https://iou-corp.github.io/business-docs/">Standard business documents</a>
-        <span class="nav-current" aria-current="page">Business documents</span>
-      </nav>
     </div>
   </header>
 
@@ -211,13 +202,6 @@
           <a class="document-link" href="https://iou-corp.github.io/iou-business-disclaimer-c/" data-doc="disclaimer">Open Disclaimer <span aria-hidden="true">↗</span></a>
         </article>
       </div>
-      <section class="notice" aria-label="Document status notice">
-        <div class="notice-symbol" aria-hidden="true">!</div>
-        <div>
-          <h3>Published policy documents</h3>
-          <p>These published documents use the wording and update dates from the supplied policy PDFs. The shared DMCA Policy applies to both business document collections.</p>
-        </div>
-      </section>
     </main>
   </div>
   <footer>&copy; 2026 IOU Corp. Business document directory.</footer>
@@ -246,7 +230,7 @@
     viewer.hidden = true;
     directory.hidden = false;
     intro.hidden = false;
-    notice.hidden = false;
+    if (notice) notice.hidden = false;
     back.hidden = true;
     selected(null);
     if (updateHistory) history.pushState(null, "", location.pathname);
@@ -258,7 +242,7 @@
     viewer.hidden = false;
     directory.hidden = true;
     intro.hidden = true;
-    notice.hidden = true;
+    if (notice) notice.hidden = true;
     back.hidden = false;
     viewer.textContent = "Loading policy document…";
     selected(key);
