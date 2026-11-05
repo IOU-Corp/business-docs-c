@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="IOU Corp cannabis business policy document directory.">
-  <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#17243a">
+    <meta name="theme-color" content="#17243a">
   <title>Cannabis Business Documents | IOU Corp</title>
   <style>
     :root {
@@ -89,6 +88,25 @@
       .doc-row { flex-direction: column-reverse; gap: 13px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+
+#document-viewer[hidden],#back-to-directory[hidden]{display:none}
+#document-viewer{outline:none;min-width:0}
+#back-to-directory{display:inline-block;margin-bottom:16px;font-size:13px;font-weight:800;color:#aa3c22;text-underline-offset:4px}
+#document-viewer .legal-document{min-width:0;background:#fff;border:1px solid #e1e6ec;border-radius:14px;padding:clamp(26px,4.5vw,55px);box-shadow:0 10px 35px rgba(20,35,55,.045)}
+#document-viewer .document-category{font-size:11px;letter-spacing:.12em;color:#b33b23;font-weight:800;text-transform:uppercase}
+#document-viewer .legal-document h1{font-size:clamp(28px,3.5vw,41px);letter-spacing:-.035em;line-height:1.19;margin:11px 0 9px;color:#1f2a3c}
+#document-viewer .document-date{color:#667487;font-size:13px;margin:0 0 29px}
+#document-viewer .legal-copy{border-top:1px solid #e5e9ee;padding-top:24px;color:#344155;overflow-wrap:anywhere}
+#document-viewer .legal-copy h2{font-size:20px;line-height:1.35;letter-spacing:-.01em;margin:35px 0 12px;color:#263648}
+#document-viewer .legal-copy h3{font-size:16px;line-height:1.45;margin:24px 0 9px;color:#263648}
+#document-viewer .legal-copy p{margin:0 0 16px;font-size:14.5px;line-height:1.79}
+#document-viewer .legal-copy p.clause{margin-left:12px}
+#document-viewer .doc-end{margin-top:37px;padding-top:20px;border-top:1px solid #e9edf1;color:#7c8795;font-size:12px}
+#document-viewer .loading{font-size:14px;color:#637186;padding:30px}
+.side-links a[aria-current="page"]{background:#fff0e9;color:#a13720;font-weight:800;border-left-color:#e54525}
+@media(max-width:490px){#document-viewer .legal-document{padding:23px 19px}#document-viewer .legal-copy p{font-size:14px}}
+
   </style>
 </head>
 <body>
@@ -113,7 +131,7 @@
       <p>Find IOU Corp's cannabis business terms, privacy information, and related legal documents in one place.</p>
       <div class="hero-meta">
         <span class="hero-pill">Cannabis business</span>
-        <span class="hero-pill">4 document links</span>
+        <span class="hero-pill">4 legal documents</span>
       </div>
     </div>
   </section>
@@ -125,15 +143,15 @@
         <details open>
           <summary>Cannabis business policies</summary>
           <div class="side-links">
-            <a href="#terms-of-service">Terms of Service</a>
-            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="https://iou-corp.github.io/business-terms-of-service-c/" data-doc="terms">Terms of Service</a>
+            <a href="https://iou-corp.github.io/business-privacy-policy-c/" data-doc="privacy">Privacy Policy</a>
           </div>
         </details>
         <details open>
           <summary>Other legal documents</summary>
           <div class="side-links">
-            <a href="#dmca">DMCA Policy</a>
-            <a href="#disclaimer">Disclaimer</a>
+            <a href="https://iou-corp.github.io/dmca/" data-doc="dmca">DMCA Policy</a>
+            <a href="https://iou-corp.github.io/iou-business-disclaimer-c/" data-doc="disclaimer">Disclaimer</a>
           </div>
         </details>
       </nav>
@@ -141,21 +159,23 @@
     </aside>
 
     <main class="content" id="main">
+      <a id="back-to-directory" href="https://iou-corp.github.io/business-docs-c/" hidden>← Back to all documents</a>
       <div class="content-heading">
         <h2>Explore documents</h2>
-        <p>Select a document below to open its dedicated policy page. These documents currently contain placeholders while final text is prepared.</p>
+        <p>Select a document in the left sidebar or below to read its complete text here. Existing direct policy links will continue to work.</p>
       </div>
-      <div class="cards">
+      <section id="document-viewer" aria-label="Selected legal document" tabindex="-1" hidden></section>
+      <div class="cards" id="directory-cards">
         <article class="doc-card" id="terms-of-service" aria-labelledby="terms-title">
           <div class="doc-row">
             <div>
               <span class="doc-number">DOCUMENT 01</span>
               <h3 id="terms-title">Cannabis Business Terms of Service</h3>
             </div>
-            <span class="status">Placeholder</span>
+            <span class="status">Published</span>
           </div>
-          <p>The cannabis-specific business Terms of Service page for IOU Corp. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/business-terms-of-service-c/">Open Terms of Service <span aria-hidden="true">↗</span></a>
+          <p>The cannabis-specific business Terms of Service page for IOU Corp. The full policy text is now available.</p>
+          <a class="document-link" href="https://iou-corp.github.io/business-terms-of-service-c/" data-doc="terms">Open Terms of Service <span aria-hidden="true">↗</span></a>
         </article>
         <article class="doc-card" id="privacy-policy" aria-labelledby="privacy-title">
           <div class="doc-row">
@@ -163,10 +183,10 @@
               <span class="doc-number">DOCUMENT 02</span>
               <h3 id="privacy-title">Cannabis Business Privacy Policy</h3>
             </div>
-            <span class="status">Placeholder</span>
+            <span class="status">Published</span>
           </div>
-          <p>The cannabis-specific business Privacy Policy page for IOU Corp. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/business-privacy-policy-c/">Open Privacy Policy <span aria-hidden="true">↗</span></a>
+          <p>The cannabis-specific business Privacy Policy page for IOU Corp. The full policy text is now available.</p>
+          <a class="document-link" href="https://iou-corp.github.io/business-privacy-policy-c/" data-doc="privacy">Open Privacy Policy <span aria-hidden="true">↗</span></a>
         </article>
         <article class="doc-card" id="dmca" aria-labelledby="dmca-title">
           <div class="doc-row">
@@ -174,10 +194,10 @@
               <span class="doc-number">DOCUMENT 03</span>
               <h3 id="dmca-title">DMCA Policy</h3>
             </div>
-            <span class="status">Placeholder</span>
+            <span class="status">Published</span>
           </div>
-          <p>The shared IOU Corp Digital Millennium Copyright Act (DMCA) Policy page. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/dmca/">Open DMCA Policy <span aria-hidden="true">↗</span></a>
+          <p>The shared IOU Corp Digital Millennium Copyright Act (DMCA) Policy page. The full policy text is now available.</p>
+          <a class="document-link" href="https://iou-corp.github.io/dmca/" data-doc="dmca">Open DMCA Policy <span aria-hidden="true">↗</span></a>
         </article>
         <article class="doc-card" id="disclaimer" aria-labelledby="disclaimer-title">
           <div class="doc-row">
@@ -185,21 +205,98 @@
               <span class="doc-number">DOCUMENT 04</span>
               <h3 id="disclaimer-title">Cannabis Business Disclaimer</h3>
             </div>
-            <span class="status">Placeholder</span>
+            <span class="status">Published</span>
           </div>
-          <p>The cannabis-specific Business Disclaimer page for IOU Corp. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/iou-business-disclaimer-c/">Open Disclaimer <span aria-hidden="true">↗</span></a>
+          <p>The cannabis-specific Business Disclaimer page for IOU Corp. The full policy text is now available.</p>
+          <a class="document-link" href="https://iou-corp.github.io/iou-business-disclaimer-c/" data-doc="disclaimer">Open Disclaimer <span aria-hidden="true">↗</span></a>
         </article>
       </div>
       <section class="notice" aria-label="Document status notice">
         <div class="notice-symbol" aria-hidden="true">!</div>
         <div>
-          <h3>Policy text is being prepared</h3>
-          <p>These links are active, but the linked documents currently contain placeholder notices. They should not be treated as finalized legal agreements.</p>
+          <h3>Published policy documents</h3>
+          <p>These published documents use the wording and update dates from the supplied policy PDFs. The shared DMCA Policy applies to both business document collections.</p>
         </div>
       </section>
     </main>
   </div>
   <footer>&copy; 2026 IOU Corp. Cannabis business document directory.</footer>
+<script>
+(() => {
+  "use strict";
+  const sources = {"terms":"https://iou-corp.github.io/business-terms-of-service-c/","privacy":"https://iou-corp.github.io/business-privacy-policy-c/","dmca":"https://iou-corp.github.io/dmca/","disclaimer":"https://iou-corp.github.io/iou-business-disclaimer-c/"};
+
+  const viewer = document.getElementById("document-viewer");
+  const directory = document.getElementById("directory-cards");
+  const intro = document.querySelector(".content-heading");
+  const notice = document.querySelector(".notice");
+  const back = document.getElementById("back-to-directory");
+  const links = [...document.querySelectorAll("a[data-doc]")];
+  let requestToken = 0;
+
+  function selected(key) {
+    links.forEach(link => {
+      if (link.dataset.doc === key) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+  }
+  function showDirectory(updateHistory) {
+    requestToken++;
+    viewer.replaceChildren();
+    viewer.hidden = true;
+    directory.hidden = false;
+    intro.hidden = false;
+    notice.hidden = false;
+    back.hidden = true;
+    selected(null);
+    if (updateHistory) history.pushState(null, "", location.pathname);
+  }
+  async function showDocument(key, updateHistory, scroll) {
+    const url = sources[key];
+    if (!url) return;
+    const token = ++requestToken;
+    viewer.hidden = false;
+    directory.hidden = true;
+    intro.hidden = true;
+    notice.hidden = true;
+    back.hidden = false;
+    viewer.textContent = "Loading policy document…";
+    selected(key);
+    if (updateHistory) history.pushState({document: key}, "", location.pathname + "?doc=" + encodeURIComponent(key));
+    if (scroll) viewer.scrollIntoView({behavior: "auto", block: "start"});
+    try {
+      const response = await fetch(url, {cache: "no-store", credentials: "same-origin"});
+      if (!response.ok) throw new Error("Policy unavailable");
+      const source = new DOMParser().parseFromString(await response.text(), "text/html");
+      const article = source.querySelector("article#legal-document");
+      if (!article) throw new Error("Policy content unavailable");
+      if (token !== requestToken) return;
+      viewer.replaceChildren(document.importNode(article, true));
+      viewer.setAttribute("aria-label", article.querySelector("h1")?.textContent || "Selected legal document");
+    } catch (error) {
+      if (token === requestToken) location.assign(url);
+    }
+  }
+  document.addEventListener("click", event => {
+    const link = event.target.closest("a[data-doc]");
+    if (!link || !(link.dataset.doc in sources) || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    showDocument(link.dataset.doc, true, true);
+  });
+  back.addEventListener("click", event => {
+    event.preventDefault();
+    showDirectory(true);
+    intro.scrollIntoView({behavior: "auto", block: "start"});
+  });
+  window.addEventListener("popstate", () => {
+    const key = new URLSearchParams(location.search).get("doc");
+    if (key && sources[key]) showDocument(key, false, false);
+    else showDirectory(false);
+  });
+  const requested = new URLSearchParams(location.search).get("doc");
+  if (requested && sources[requested]) showDocument(requested, false, false);
+})();
+
+</script>
 </body>
 </html>
